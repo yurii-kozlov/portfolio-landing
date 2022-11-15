@@ -1,0 +1,37 @@
+@import "./utils/mixins";
+
+.statistics {
+  background-color: #990047;
+  padding-top: 7.2rem;
+  padding-bottom: 6rem;
+  text-align: center;
+
+  &__block {
+    padding-bottom: 1.5rem;
+    transition: all 0.3s ease-in-out;
+  }
+
+  &__icon {
+    font-size: 4rem;
+    color: #000;
+  }
+
+  &__count {
+    font-size: 3.5rem;
+    margin-bottom: 0;
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    color: white;
+  }
+
+  &__title {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1.4rem;
+    line-height: 1.714;
+    text-transform: uppercase;
+    letter-spacing: .15rem;
+    font-family: "Poppins";
+    font-weight: bold;
+    margin-bottom: 1.2rem;
+  }
+}

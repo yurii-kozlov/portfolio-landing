@@ -1,0 +1,40 @@
+@import "./utils/mixins";
+
+.arrow {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 3;
+  @include smooth-transition;
+  opacity: 1;
+
+  &__link {
+    text-decoration: none;
+    border: 0 none;
+    display: block;
+    height: 6.6rem;
+    width: 6rem;
+    line-height: 6.6rem;
+    text-align: center;
+    background-color: #cc005f;
+    color: #FFFFFF;
+    text-align: center;
+    text-transform: uppercase;
+    @include smooth-transition;
+
+    @include onMobile {
+      transform: translateX(-100%);
+    }
+
+    &--visibility_hidden {
+      opacity: 0;
+      @include smooth-transition;
+      visibility: hidden;
+
+    }
+  }
+
+  &__link:hover {
+    background-color: #000;
+  }
+}

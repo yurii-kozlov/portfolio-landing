@@ -1,0 +1,100 @@
+@mixin onDesktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin onMobile {
+  @media (max-width: 600px) {
+    @content;
+  }
+}
+
+@mixin onMobile-grid {
+  @media (max-width: 736px) {
+    @content;
+  }
+}
+
+@mixin top-actions {
+  --icon-width: 18px;
+  display: grid;
+  grid-template-columns: var(--icon-width) 1fr var(--icon-width);
+  justify-items: center;
+  align-items: center;
+
+  @include onDesktop {
+    --icon-width: 24px;
+  }
+}
+
+@mixin author-occupations {
+  padding: 0 6px;
+  font-family: 'Lora', serif;
+  font-size: 1.7rem;
+  line-height: 2.4rem;
+  text-transform: uppercase;
+  letter-spacing: .2rem;
+  color: #FFFFFF;
+
+  @include onMobile {
+    font-size: 1.2rem;
+  }
+}
+
+@mixin titles {
+  font-family: 'Poppins', sans-serif;
+  color: #FF0077;
+  font-size: 1.6rem;
+  line-height: 1.875;
+  margin-bottom: 0.3rem;
+  letter-spacing: .4rem;
+  text-transform: uppercase;
+  font-style: normal;
+  text-rendering: optimizeLegibility;
+  text-align: center;
+  font-weight: bold;
+}
+
+
+@mixin section-intro {
+  text-align: center;
+  font-size: 2.6rem;
+  font-family: 'Poppins-semibold', sans-serif;
+  color: #313131;
+  line-height: 1.25;
+  margin-bottom: 1.2rem;
+  letter-spacing: -.07rem;
+  font-weight: bold;
+
+  @include onDesktop {
+    font-size: 3.6rem;
+  }
+}
+
+@mixin description-text{
+  font-family: "Lora", serif;
+  font-size: 1.7rem;
+  line-height: 3rem;
+  color: #6e6e6e;
+}
+
+@mixin smooth-transition {
+  transition: all 0.3s ease-in-out;
+}
+
+@mixin intro-text-description {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-family: "Lora", serif;
+  font-size: 1.7rem;
+  line-height: 1.7;
+  color: #7d7d7d;
+
+  @include onDesktop {
+    font-size: 2rem;
+    line-height: 1.8;
+  }
+}

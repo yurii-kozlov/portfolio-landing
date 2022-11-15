@@ -1,0 +1,100 @@
+.switchers {
+  display: none;
+  margin: 0;
+  position: sticky;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 55px;
+  background-color: #000;
+  @include smooth-transition;
+
+  @include onDesktop {
+    display: block;
+  }
+
+  &--display_none {
+    display: none;
+  }
+
+  &__close {
+    display: block;
+  }
+
+  &__close::after {
+    color: rgba(255, 255, 255 , .35);
+    font-size: 30px;
+    display: inline-block;
+    content: "\00d7"; 
+    @include smooth-transition;
+  }
+
+  &__close:hover::after {
+    color: #fff;
+  }
+
+  &__right {
+    display: flex;
+    gap: 30px;
+    align-items: center
+  }
+  &__list {
+    box-sizing: border-box;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    width: 100%;
+    height: 100%;
+    padding: 0 20px;
+  }
+
+  &__link--left {
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+    outline: none;
+
+    @include onDesktop {
+      font-size: 15px;
+    }
+  }
+
+  &__link--right {
+    text-decoration: none;
+    font-size: 20px;
+    color: #ffffff59;
+    outline: none;
+    position: relative;
+    @include smooth-transition;
+
+    @include onDesktop {
+      font-size: 15px;
+    }
+
+  }
+
+  &__link--right:hover {
+    color: #fff;
+  }
+
+  &__link--right::before {
+    border: medium solid transparent;
+    content: "";
+    position: relative;
+    top: 14px;
+    right: 7px;
+    height: 0;
+    width: 0;
+    border-color: #ffffff54 rgba(255, 212, 52, 0) rgba(255, 212, 52, 0);
+    border-width: 8px;
+    @include smooth-transition;
+
+  }
+
+  &__link--right:hover::before {
+    border-color: #fff rgba(255, 212, 52, 0) rgba(255, 212, 52, 0);
+  }
+}

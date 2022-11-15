@@ -1,0 +1,75 @@
+.services {
+  margin: 0 auto;
+  padding-top: 12rem;
+  padding-bottom: 15rem;
+  position: relative;
+  background-image: linear-gradient(rgba(23, 22, 22, 0.932),rgba(0, 0, 0, 0.5)), url(../images/bg.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  &__icon {
+    display: inline-block;
+    margin-bottom: 2.1rem;
+    font-size: 60px;
+    color: #cc005f;
+  }
+
+  &__name {
+    font-family: "Poppins", sans-serif;
+    color: #fff;
+    font-style: normal;
+    font-size: 2rem;
+    line-height: 1.5;
+    margin-bottom: 1.8rem;
+    font-weight: bold;
+  }
+
+  &__description {
+    font-family: "Lora", serif;
+    font-size: 1.7rem;
+    line-height: 3rem;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  &__card {
+    padding: 0 30px;
+    text-align: center;
+  }
+
+  &__intro {
+    margin-bottom: 3rem;
+    max-width: 650px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+
+
+    @include onDesktop {
+      max-width: 700px;
+    }
+  }
+
+  &__title {
+    @include titles;
+  }
+
+  &__subtitle {
+    @include section-intro;
+
+    &--color_white {
+      color: #fff;
+    }
+  }
+
+  &__small-description {
+    @include intro-text-description;
+    max-width: 600px;
+    padding-left: 30px;
+    padding-right: 30px;
+
+    &--color_white {
+      color: rgba(255, 255, 255, 0.7);
+    }
+  }
+}

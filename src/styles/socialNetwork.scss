@@ -1,0 +1,45 @@
+@import "./utils/mixins";
+
+.social-network{
+  position: relative;
+  top: 25%;
+  font-size: 2.5rem;
+
+  @include onDesktop {
+    font-size: 3.5rem;
+    top: 15%;
+  }
+
+  &--font-small {
+    font-size: 2.1rem;
+  }
+
+  &__link {
+    &-item {
+      text-decoration: none;
+      color: #fff;
+      transition: all 0.3s ease-in-out;
+    }
+  
+    &-item--color-purple:hover{
+      color: #cc005f;
+    }
+  
+  }
+
+  &__list {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+
+    @include onMobile {
+      gap: 25px;
+    }
+
+    &--gap_bigger {
+      gap: 30px;
+    }
+  }
+
+}
+

@@ -1,0 +1,16 @@
+.page {
+  &__about {
+    padding-top: 120px;
+    padding-bottom: 140px;
+
+    @include onDesktop {
+      padding-top: 110px;
+      padding-bottom: 150px;
+    }
+  }
+
+  &__portfolio {
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
+}
