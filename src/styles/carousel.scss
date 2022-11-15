@@ -1,3 +1,5 @@
+@import './utils/variables';
+
 .carousel-indicators .carousel {
   &__indicator {
     width: 12px;
@@ -14,7 +16,7 @@
 }
 
 .carousel-indicators .active {
-  background-color:#cc005f;
+  background-color: $colorPurpleHover;
 }
 
 .sr-only {

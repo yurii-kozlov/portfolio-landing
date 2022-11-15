@@ -43,7 +43,7 @@
       }
 
       &-title {
-        color: #FF0077;
+        color: $colorPurple;
         font-size: 1.4rem;
         line-height: 1.714;
         text-transform: uppercase;
@@ -65,7 +65,7 @@
       padding: 0 3rem;
       margin-top: 4.8rem;
       width: 100%;
-      background-color: #FF0077;
+      background-color: $colorPurple;
       color: #FFFFFF;
       font-family: "Poppins", sans-serif;
       font-weight: bold;
@@ -79,10 +79,15 @@
     }
 
     &-button:hover {
-      background-color: #ff0077ca;
+      background-color: $colorPurpleHover;
+      outline: none;
     }
 
     &-button:active {
+      outline: none;
+    }
+
+    &-button:focus {
       outline: none;
     }
 
@@ -109,7 +114,7 @@
 
 
     &-textarea:focus {
-      border-bottom-color: #cc005f;
+      border-bottom-color: $colorPurpleHover;
     } 
 
     &-field {
@@ -135,7 +140,7 @@
     }
 
     &-input:focus {
-      border-bottom-color: #cc005f;
+      border-bottom-color: $colorPurpleHover;
     }
 
     &-input::placeholder {

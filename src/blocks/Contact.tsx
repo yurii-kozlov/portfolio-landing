@@ -1,4 +1,6 @@
 export const Contact = () => {
+  const handleSubmit = (event: React.FormEvent) => event.preventDefault();
+
   return (
     <section className="contact" id="contact">
       <div className="container">
@@ -21,6 +23,7 @@ export const Contact = () => {
         </div>
         <div className="contact__form-block">
           <form
+            onSubmit={handleSubmit}
             action="#"
             className="contact__form"
             method="get"

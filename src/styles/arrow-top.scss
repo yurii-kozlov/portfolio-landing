@@ -1,4 +1,5 @@
 @import "./utils/mixins";
+@import './utils/variables';
 
 .arrow {
   position: fixed;
@@ -16,7 +17,7 @@
     width: 6rem;
     line-height: 6.6rem;
     text-align: center;
-    background-color: #cc005f;
+    background-color: $colorPurpleHover;
     color: #FFFFFF;
     text-align: center;
     text-transform: uppercase;

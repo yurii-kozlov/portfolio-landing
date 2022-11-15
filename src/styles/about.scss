@@ -24,7 +24,7 @@
       top: -3.6rem;
       display: block;
       font-family: "poppins-regular", sans-serif;
-      color: white;
+      color: #fff;
       font-size: 1.1rem;
       line-height: 1;
       background: #313131;
@@ -115,8 +115,8 @@
     }
 
     &-hire:hover {
-      color: #cc005f;
-      border-color: #cc005f;;
+      color: $colorPurpleHover;
+      border-color: $colorPurpleHover;
     }
 
     &-download {
