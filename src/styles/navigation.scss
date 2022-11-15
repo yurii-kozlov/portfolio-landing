@@ -98,7 +98,7 @@
     transform: rotate(45deg);
     background-color: #ff0077;
     transition-delay: 0s, 0.5s;
-    transition-property: top, transform ease-in-out;
+    transition-property: all ease-in-out;
     content: '';
     width: 10%;
     height: 60%;
@@ -109,11 +109,11 @@
   }
 
   &__menu-toggle--clicked::after {
-    bottom: 8px;
+    top: 8px;
     transform: rotate(-45deg);
     background-color: #ff0077;
     transition-delay: 0s, 0.5s;
-    transition-property: bottom, transform ease-in-out;
+    transition-property: all ease-in-out;
     content: '';
     width: 10%;
     height: 60%;
