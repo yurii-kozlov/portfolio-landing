@@ -113,7 +113,7 @@
     transform: rotate(-45deg);
     background-color: #ff0077;
     transition-delay: 0s, 0.5s;
-    transition-property: bottom, transform;
+    transition-property: bottom, transform ease-in-out;
     content: '';
     width: 10%;
     height: 60%;
