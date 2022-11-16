@@ -1,5 +1,53 @@
+import React, { useState } from 'react';
+
 export const Contact = () => {
+  const [emailInput, setEmailUnput] = useState('');
+  const [nameInput, setNameInput] = useState('');
+  const [messageInput, setMessageInput] = useState('');
+  const [isEmptyMessageError, setIsEmptyMessageError]
+  = useState<boolean>(false);
+  const [isEmptyNameError, setIsEmptyNameError] = useState<boolean>(false);
+  const [isEmptyEmailError, setIsEmptyEmailError] = useState<boolean>(false);
+  const [isWrongEmail, setIsWrongEmail] = useState<boolean>(false);
+
   const handleSubmit = (event: React.FormEvent) => event.preventDefault();
+  const handleNameInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (!event.target.value) {
+      setIsEmptyNameError(true);
+    } else {
+      setIsEmptyNameError(false);
+    }
+
+    return setNameInput(event.target.value);
+  };
+
+  const handleEmailInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (!event.target.value.includes('@') && event.target.value.length !== 0) {
+      setIsWrongEmail(true);
+    } else {
+      setIsWrongEmail(false);
+    }
+
+    if (!event.target.value) {
+      setIsEmptyEmailError(true);
+    } else {
+      setIsEmptyEmailError(false);
+    }
+
+    return setEmailUnput(event.target.value);
+  };
+
+  const handleMessageInput = (
+    event: React.ChangeEvent<HTMLTextAreaElement>,
+  ) => {
+    if (!event.target.value) {
+      setIsEmptyMessageError(true);
+    } else {
+      setIsEmptyMessageError(false);
+    }
+
+    return setMessageInput(event.target.value);
+  };
 
   return (
     <section className="contact" id="contact">
@@ -31,6 +79,8 @@ export const Contact = () => {
             <fieldset className="contact__form-fieldset">
               <div className="contact__form-field">
                 <input
+                  onChange={handleNameInput}
+                  value={nameInput}
                   id="contactName"
                   placeholder="Name"
                   name="contactName"
@@ -38,9 +88,22 @@ export const Contact = () => {
                   type="text"
                   required
                 />
+
+                {isEmptyNameError && (
+                  <label
+                    id="contactName-error"
+                    className="contact__form-input-error"
+                    htmlFor="contactName"
+                  >
+                    This field is required
+                  </label>
+                )}
+
               </div>
               <div className="contact__form-field">
                 <input
+                  value={emailInput}
+                  onChange={handleEmailInput}
                   id="contactEmail"
                   placeholder="Email"
                   name="contactEmail"
@@ -48,6 +111,27 @@ export const Contact = () => {
                   type="email"
                   required
                 />
+
+                {isEmptyEmailError && (
+                  <label
+                    id="contactMessage-error"
+                    className="contact__form-input-error"
+                    htmlFor="contactEmail"
+                  >
+                    This field is required.
+                  </label>
+                )}
+
+                {isWrongEmail && (
+                  <label
+                    id="contactMessage-error"
+                    className="contact__form-input-error"
+                    htmlFor="contactEmail"
+                  >
+                    Please enter a valid email address
+                  </label>
+                )}
+
               </div>
               <div className="contact__form-field">
                 <input
@@ -61,14 +145,29 @@ export const Contact = () => {
               </div>
               <div className="contact__form-field">
                 <textarea
+                  onChange={handleMessageInput}
+                  value={messageInput}
                   id="contactMessage"
                   placeholder="message"
                   name="contactMessage"
                   className="contact__form-textarea"
                   rows={10}
                   cols={50}
-                  required
                 />
+
+                {isEmptyMessageError && (
+                  <label
+                    id="contactMessage-error"
+                    className="
+                    contact__form-textarea-error
+                    contact__form-input-error
+                    "
+                    htmlFor="contactMessage"
+                  >
+                    This field is required.
+                  </label>
+                )}
+
               </div>
 
               <div className="contact__form-field">

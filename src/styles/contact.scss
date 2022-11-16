@@ -56,6 +56,44 @@
 
   &__form {
 
+    &-input-error {
+      font-family: "Poppins", sans-serif;
+      font-weight: bold;
+      font-size: 1.1rem;
+      line-height: 2.4rem;
+      position: absolute;
+      bottom: -1.2rem;
+      right: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: .1rem;
+      padding: 0 2rem;
+      margin: 0;
+      color: #FFFFFF;
+      background: #FF0077;
+      z-index: 1;
+      display: block;
+
+      &--visibility_visible {
+        display: block;
+      }
+    }
+    
+    &-textarea-error {
+      bottom: 2.8rem;
+    }
+
+
+    &-input-error::after {
+      position: absolute;
+      left: -5px;
+      top: 50%;
+      margin-top: -6px;
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+      border-right: 5px solid #FF0077;
+      content: "";
+    }
+
     &-button {
       font-size: 1.5rem;
       display: block;
@@ -124,6 +162,7 @@
       background: transparent;
       font-family: "Poppins", sans-serif;
       font-weight:inherit;
+      position: relative;
     }
 
     &-input {
