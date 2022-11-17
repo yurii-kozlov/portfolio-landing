@@ -1,24 +1,39 @@
+@import './utils/mixins';
+
 .modal {
-  height: 100vh;
-  width: 100vw;
-  background-color: rgba(0, 0, 0, 0.4);
+  overflow-y: scroll;
+  width: 100vw; 
+  background-color: rgba(0, 0, 0, 0.902);
   position: fixed;
   top: 0;
   left: 0;
   display: flex;
   justify-content: center;
-  align-items: center;
-  transform: scale(0);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.5s;
 
   &__content {
-    padding: 20px;
-    border-radius: 12px;
-    background-color: #fff;
-    height: 200px;
-    width: 200px;
+    max-width: 500px;
+    height: 300px;
+
+    @include onMobile {
+      max-width: 350px;
+    }
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: 0.5s all;
+    outline: none;
+
+
+    &--active {
+      transform: translateY(0);
+      opacity: 1;
+    }
   }
 
-  --active {
-    transform: scale(1);
+  &--active {
+    opacity: 1;
+    pointer-events: all;
   }
 }

@@ -1,15 +1,12 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import classNames from 'classnames';
-import { Dispatch, SetStateAction } from 'react';
+import { ModalProps } from '../types/ModalProps';
 import '../styles/modal.scss';
 
-type Props = {
-  active: boolean,
-  setActive: Dispatch<SetStateAction<boolean>>;
-};
-
-export const Modal: React.FC<Props> = ({ active, setActive }) => {
+export const Modal: React.FC<ModalProps> = (
+  { active, setActive, children },
+) => {
   return (
     <div
       className={classNames('modal', {
@@ -18,10 +15,12 @@ export const Modal: React.FC<Props> = ({ active, setActive }) => {
       onClick={() => setActive(false)}
     >
       <div
-        className="modal__content"
+        className={classNames('modal__content', {
+          'modal__content--active': active,
+        })}
         onClick={(e) => e.stopPropagation()}
       >
-        <h1>hellsdfsdfsdf</h1>
+        {children}
       </div>
     </div>
   );

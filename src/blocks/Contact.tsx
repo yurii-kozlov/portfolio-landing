@@ -6,12 +6,34 @@ export const Contact = () => {
   const [messageInput, setMessageInput] = useState('');
   const [isEmptyMessageError, setIsEmptyMessageError]
   = useState<boolean>(false);
+  const [isShortNameError, setIsShortNameError] = useState<boolean>(false);
   const [isEmptyNameError, setIsEmptyNameError] = useState<boolean>(false);
   const [isEmptyEmailError, setIsEmptyEmailError] = useState<boolean>(false);
   const [isWrongEmail, setIsWrongEmail] = useState<boolean>(false);
 
-  const handleSubmit = (event: React.FormEvent) => event.preventDefault();
+  const handleSubmit = (event: React.FormEvent) => {
+    if (!emailInput) {
+      setIsEmptyEmailError(true);
+    }
+
+    if (!nameInput) {
+      setIsEmptyNameError(true);
+    }
+
+    if (!messageInput) {
+      setIsEmptyMessageError(true);
+    }
+
+    return event.preventDefault();
+  };
+
   const handleNameInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.value.length < 2 && event.target.value.length !== 0) {
+      setIsShortNameError(true);
+    } else {
+      setIsShortNameError(false);
+    }
+
     if (!event.target.value) {
       setIsEmptyNameError(true);
     } else {
@@ -86,7 +108,6 @@ export const Contact = () => {
                   name="contactName"
                   className="contact__form-input"
                   type="text"
-                  required
                 />
 
                 {isEmptyNameError && (
@@ -96,6 +117,16 @@ export const Contact = () => {
                     htmlFor="contactName"
                   >
                     This field is required
+                  </label>
+                )}
+
+                {isShortNameError && (
+                  <label
+                    id="contactName-error"
+                    className="contact__form-input-error"
+                    htmlFor="contactName"
+                  >
+                    Please enter at least 2 characters
                   </label>
                 )}
 
@@ -109,7 +140,6 @@ export const Contact = () => {
                   name="contactEmail"
                   className="contact__form-input"
                   type="email"
-                  required
                 />
 
                 {isEmptyEmailError && (
@@ -140,7 +170,6 @@ export const Contact = () => {
                   name="contactSubject"
                   className="contact__form-input"
                   type="text"
-                  required
                 />
               </div>
               <div className="contact__form-field">

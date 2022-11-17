@@ -2,7 +2,6 @@
 @import "./utils/variables";
 
 .navigation {
-
   &__link {
     display: block;
     color: #FFFFFF;
@@ -51,7 +50,8 @@
   }
 
   &__menu-toggle {
-    transition: all 0.2s ease-in-out;
+    transition: all 1s ease-in-out;
+    transition-duration: 1s, 1s;
     display: block;
     background-color: $colorPurple;
     width: 24px;
@@ -63,10 +63,13 @@
     top: 50%;
     bottom: auto;
     left: auto;
+    transform: rotateX(180deg);
   }
 
   &__menu-toggle::before {
     top: -8px;
+    transform: rotateX(180deg);
+    transition-duration: 1s, 1s;
     transition-property: top, transform;
     content: '';
     width: 100%;
@@ -74,12 +77,12 @@
     background-color: inherit;
     position: absolute;
     left: 0;
-    transition-delay: 0.2s, 0s;
   
   }
   
   &__menu-toggle::after {
     bottom: -8px;
+    transform: rotateX(180deg);
     transition-property: bottom, transform;
     content: '';
     width: 100%;
@@ -87,8 +90,7 @@
     background-color: inherit;
     position: absolute;
     left: 0;
-    transition-duration: 0.2s, 0.2s;
-    transition-delay: 0.2s, 0s;
+    transition-duration: 1s, 1s;
   }
 
   &__menu-toggle--clicked {
@@ -96,10 +98,11 @@
   }
 
   &__menu-toggle--clicked::before {
-    transform: rotate(45deg);
+
+    transform: rotate(-135deg);
     background-color: $colorPurple;
-    transition-delay: 0s, 0.5s;
-    transition-property: all ease-in-out;
+    transition: 1s;
+    transition-property: transform ;
     content: '';
     width: 10%;
     height: 60%;
@@ -111,10 +114,10 @@
 
   &__menu-toggle--clicked::after {
     bottom: 8px;
-    transform: rotate(-45deg);
+    transform: rotate(135deg);
     background-color: $colorPurple;
-    transition-delay: 0s, 0.5s;
-    transition-property: all ease-in-out;
+    transition: 1s;
+    transition-property: transform ;
     content: '';
     width: 10%;
     height: 60%;
@@ -165,7 +168,7 @@
     clear: both;
     position: relative;
     max-height: 0;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.8s ease-in-out;
     overflow: hidden;
     list-style: none;
 

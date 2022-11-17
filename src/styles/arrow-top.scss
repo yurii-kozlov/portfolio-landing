@@ -23,10 +23,6 @@
     text-transform: uppercase;
     @include smooth-transition;
 
-    @include onMobile {
-      transform: translateX(-100%);
-    }
-
     &--visibility_hidden {
       opacity: 0;
       @include smooth-transition;
