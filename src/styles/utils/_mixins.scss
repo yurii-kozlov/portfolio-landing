@@ -98,3 +98,9 @@
     line-height: 1.8;
   }
 }
+
+@mixin onTablet {
+  @media (min-width: 600px) {
+    @content;
+  }
+}

@@ -1,12 +1,39 @@
 .services {
   margin: 0 auto;
   padding-top: 12rem;
-  padding-bottom: 15rem;
+  padding-bottom: 10rem;
   position: relative;
   background-image: linear-gradient(rgba(23, 22, 22, 0.932),rgba(0, 0, 0, 0.5)), url(../images/bg.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+
+  @include onTablet {
+    padding-bottom: 6rem;
+  }
+
+  @include onDesktop {
+    padding-bottom: 12rem;
+  }
+
+  &__content {
+    overflow: hidden;
+    min-height: 520px;
+    @include onDesktop {
+      overflow:visible;
+    }
+
+    @include onTablet {
+      min-height: 450px;
+    }
+
+    @include onMobile {
+      min-height: 450px;
+      overflow: hidden;
+      padding-bottom: 7rem;
+    }
+
+  }
 
   &__icon {
     display: inline-block;

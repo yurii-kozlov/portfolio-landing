@@ -1,6 +1,7 @@
 @import './utils/mixins';
 
 .modal {
+  display: block;
   overflow-y: scroll;
   width: 100vw; 
   background-color: rgba(0, 0, 0, 0.902);
