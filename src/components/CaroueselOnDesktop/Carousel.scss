@@ -1,0 +1,49 @@
+@import '../../styles/utils/mixins';
+@import '../../styles/utils/variables';
+
+.carousel-indicators .carousel {
+  &__indicator {
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%;
+    background-color: $colorWhite;
+    cursor: pointer;
+  }
+
+}
+
+.carousel-indicators {
+  gap: 1rem;
+}
+
+.carousel-indicators .active {
+  background-color: $colorPurpleHover;
+}
+
+.sr-only {
+  width: 5rem;
+}
+
+.carousel-control-next-icon {
+  margin-left: 20rem;
+  opacity: 0;
+  position: absolute;
+
+  @include onDesktop {
+    opacity: 1;
+  }
+}
+
+.carousel-control-prev-icon {
+  margin-right: 20rem;
+  opacity: 0;
+  position: absolute;
+
+  @include onDesktop {
+    opacity: 1;
+  }
+}
+
+.carousel-indicators {
+  bottom: -6rem;
+}

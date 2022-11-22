@@ -1,33 +1,8 @@
-@import "./styles/utils/mixins";
-@import "./styles/utils/variables";
-
-@import "./styles/container.scss";
-@import "./styles/header.scss";
-@import "./styles/switchers.scss";
-@import "./styles/page.scss";
-@import "./styles//about.scss";
 @import "./styles/grid.scss";
-@import "./styles/experience.scss";
-@import "./styles/portfolio.scss";
-@import "./styles/grid-no-gap.scss";
-@import "./styles//grey.scss";
-@import "./styles/services.scss";
-@import "./styles/footer.scss";
-@import "./styles/container-services.scss";
-@import "./styles/carousel.scss";
-@import "./styles/statistics.scss";
-@import "./styles/gridStats.scss";
-@import "./styles/contact.scss";
-
+@import "./styles/reset.scss";
 
 body {
   margin: 0;
-  font-family: "Inter", Sans-serif;
-}
-
-div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, th, td {
-  margin: 0;
-  padding: 0;
   font-family: "Inter", Sans-serif;
 }
 
@@ -40,10 +15,3 @@ html {
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
-
-a:hover {
-  text-decoration: none;
-  color: #fff;
-}
-
-

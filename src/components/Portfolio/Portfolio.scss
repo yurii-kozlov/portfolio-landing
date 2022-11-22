@@ -1,0 +1,214 @@
+@import '../../styles/utils/mixins';
+@import '../../styles/utils/variables';
+
+.portfolio {
+  &__example-block {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+    transition: all 2s;
+    max-width: 55rem;
+
+    background-color: $colorWhite;
+    vertical-align: middle;
+    text-align: left;
+    display: block;
+
+    @include onMobile {
+      width: 30rem;
+    }
+
+
+    &-link {
+      font-family: "Poppins", sans-serif;
+      font-size: 1.2rem;
+      line-height: 6rem;
+      color: $colorWhite;
+      text-transform: uppercase;
+      letter-spacing: 0.3rem;
+      cursor: pointer;
+      display: inline-block;
+      text-align: center;
+      width: 50%;
+      font-weight: bold;
+      @include smooth-transition;
+      
+      &--left {
+        border-right: 0.1rem solid rgba(200, 200, 200, 0.1);
+      }
+    }
+
+    &-link:hover {
+      background-color: $colorPurpleHover;
+    }
+
+    &-links {
+      width: 100%;
+      background-color: $colorBlack;
+    }
+
+    &-categories {
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    font-size: 1.1rem;
+    line-height: 1.8rem;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    display: block;
+    text-align: left;
+    color: rgba(0, 0, 0, 0.5);
+    }
+
+    &-description {
+      padding: 1.8rem 3.6rem 3rem;
+    }
+
+    &-title {
+      font-family: "Poppins", sans-serif;
+      font-size: 1.5rem;
+      line-height: 2.4rem;
+      margin-bottom: 0.6rem;
+      font-weight: bold;
+    }
+
+    &-text {
+      font-family: "Poppins", sans-serif;
+      font-weight: normal;
+      font-size: 1.4rem;
+      line-height: 2.4rem;
+      margin-bottom: 1.2rem;
+      color: $colorGrey;
+    }
+
+    &-photo {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  &__description {
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+    font-family: "Poppins", sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: .1rem;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  &__item {
+    display: table;
+    width: 100%;
+    height: 100%;
+
+    &-cell {
+      width: 100%;
+      height: 100%;
+      transition: all 0.5s ease-in-out;
+      position: relative;
+      left: -100%;
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+    }
+  }
+
+  &__example {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    text-decoration: none;
+    line-height: inherit;
+    overflow: hidden;
+
+    &-name {
+      font-family: "Poppins-semibold", sans-serif;
+      color: $colorWhite;
+      font-size: 3.1rem;
+      padding: 0 3rem;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+
+      @include onDesktop {
+        font-size: 3.3rem;
+      }
+    }
+  }
+
+  &__image {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+
+    object-fit:cover;
+    object-position: center;
+    transition: all 0.5s ease-in-out;
+
+    &-container {
+      position: relative;
+      width: 100%;
+  
+      box-sizing: border-box;
+      max-height: 60rem;
+      overflow: hidden;
+      cursor: pointer;
+  
+      &::after {
+        content: "";
+        display: block;
+        padding-bottom: 100%;
+      }
+  
+      @include onDesktop {
+        height: 60rem;
+        padding-bottom: 0;
+      }
+    }
+  }
+
+  &__intro {
+    margin-bottom: 3.6rem;
+
+    &-description {
+      @include intro-text-description;
+    }
+  }
+
+  &__title {
+    @include titles;
+  }
+
+  &__subtitle {
+    @include section-intro;
+  }
+}
+
+.portfolio__example-block--visibilty_visible {
+  transform: translateY(150%);
+}
+
+
+.alert-enter {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.alert-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.alert-exit {
+  opacity: 1;
+}
+
+.alert-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
+}

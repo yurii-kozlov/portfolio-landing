@@ -1,0 +1,12 @@
+@import '../../styles/utils/variables';
+
+.grey {
+  &__title {
+    display: none;
+  }
+
+  padding-top: 10.2rem;
+  padding-bottom: 9rem;
+  text-align: center;
+  background-color: $colorGreySectionBackground;
+}

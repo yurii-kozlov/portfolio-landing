@@ -1,0 +1,286 @@
+@import '../../styles/utils/mixins';
+@import '../../styles/utils/variables';
+
+.about {
+
+  &__skills {
+    &-name {
+      position: absolute;
+      left: 0;
+      top: -3rem;
+      font-family: "poppins-bold", sans-serif;
+      color: $colorDarkBrownScale;
+      text-transform: uppercase;
+      letter-spacing: .2rem;
+      font-size: 1.5rem;
+      line-height: 2.4rem;
+    }
+
+    &-description {
+      margin-bottom: 3rem;
+      @include description-text;
+    }
+
+    &-scale {
+      position: absolute;
+      right: 0;
+      top: -3.6rem;
+      display: block;
+      font-family: "poppins-regular", sans-serif;
+      color: $colorWhite;
+      font-size: 1.1rem;
+      line-height: 1;
+      background-color: $colorDarkBrownScale;
+      padding: 0.6rem 0.6rem;
+      border-radius: 3px;
+    }
+
+    &-scale::after {
+      position: absolute;
+      left: 50%;
+      bottom: -0.5rem;
+      margin-left: -0.5rem;
+      border-right: 0.5rem solid transparent;
+      border-left: 0.5rem solid transparent;
+      border-top: 0.5rem solid $colorDarkBrownScale;
+      content: "";
+    }
+
+    &-percent {
+      background: $colorDarkBrownScale;
+      position: relative;
+      height: 100%;
+  
+      &--90 {
+        width: 90%;
+      }
+  
+      &--85 {
+        width: 85%;
+      }
+  
+      &--70 {
+        width: 70%;
+      }
+  
+      &--95 {
+        width: 95%;
+      }
+  
+      &--75 {
+        width: 75%;
+      }
+    }
+
+    &-list {
+      list-style: none;
+      margin: 6rem 0 3rem;
+  
+      &-item {
+        height: 0.6rem;
+        background-color: $colorGreyAboutSkillsBackground;
+        width: 100%;
+        margin-bottom: 6rem;
+        padding: 0;
+        position: relative;
+      }
+    }
+  }
+
+  &__link {
+
+    &-hire {
+      box-sizing: border-box;
+      width: 100%;
+      color: $colorDarkBrownScale;
+      text-decoration: none;
+      cursor: pointer;
+      text-align: center;
+      white-space: nowrap;
+      padding: 0 3rem;
+      margin-bottom: 3rem;
+      display: inline-block;
+      font-family: "Poppins", sans-serif;
+      font-weight: bold;
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      letter-spacing: .3rem;
+      height: 5.4rem;
+      background: transparent;
+      border: 0.3rem solid $colorDarkBrownScale;
+      line-height: 4.8rem;
+      @include smooth-transition;
+  
+      @include onDesktop {
+        width: 25rem;
+        margin: 0 0.3rem 1.2rem 0;
+      }
+    }
+
+    &-hire:hover {
+      color: $colorPurpleHover;
+      border-color: $colorPurpleHover;
+    }
+
+    &-download {
+      box-sizing: border-box;
+      background: $colorDarkBrownScale;
+      color: $colorWhite;
+      width: 100%;
+      display: inline-block;
+      font-family: "Poppins", sans-serif;
+      font-weight: bold;
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      letter-spacing: .3rem;
+      height: 5.4rem;
+      line-height: 5.4rem;
+      padding: 0 3rem;
+      margin-bottom: 3rem;
+      text-decoration: none;
+      cursor: pointer;
+      text-align: center;
+      white-space: nowrap;
+      border: none;
+      @include smooth-transition;
+  
+      @include onDesktop {
+        width: 25rem;
+        margin: 0 0.3rem 1.2rem 0;
+      }
+    }
+
+    &-download:hover {
+      background-color: rgb(28, 27, 27);
+    }
+  }
+
+  &__author {
+    &-list {
+      list-style: none;
+      margin-bottom: 4.2rem;
+  
+      @include onDesktop {
+        margin-bottom: 3rem;
+      }
+  
+      &-item {
+        padding: 0 0 1.5rem 0;
+        margin-bottom: 0.6rem;
+  
+        &-info {
+          font-family: "Poppins", sans-serif;
+          color: $colorDarkBrownScale;
+          text-transform: uppercase;
+          letter-spacing: .2rem;
+          font-size: 1.5rem;
+          line-height: 3rem;
+        }
+  
+        &-details {
+          display: block;
+          font-family: "Poppins-regular", sans-serif;
+          color: $colorGrey;
+          font-size: 1.5rem;
+          line-height: 1;
+        }
+      }
+    }
+
+    &-content {
+      margin-bottom: 3rem;
+
+      @include onDesktop {
+        margin-bottom: 3.5rem;
+      }
+    }
+
+    &-subhead {
+      font-family: "Poppins", sans-serif;
+      font-size: 1.8rem;
+      text-transform: uppercase;
+      letter-spacing: .25rem;
+      text-transform: uppercase;
+      margin-bottom: 1.8rem;
+      text-align: center;
+      font-weight: bold;
+  
+      @include onDesktop {
+        text-align: initial;
+      }
+    }
+  }
+
+  &__profile {
+    &-description {
+      margin-bottom: 3rem;
+      @include description-text;
+    }
+
+    &-photo {
+      margin-top: 0.8rem;
+    width: 9rem;
+    height: 9rem;
+    border-radius: 50%;
+    float: left;
+
+    @include onMobile {
+      width: 6.5rem;
+      height: 6.5rem;
+    }
+
+    @include onDesktop{
+      width: 8.5rem;
+      height: 8.5rem;
+    }
+    }
+  }
+
+  &__intro {
+    margin-bottom: 3rem;
+
+    &-info {
+      margin-top: 3.2rem;
+      display: flex;
+      justify-content: center;
+  
+      @include onMobile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+    }
+  }
+
+  &__title {
+    @include titles;
+  }
+
+  &__subtitle {
+    @include section-intro;
+  }
+
+  &__description{
+    margin-bottom: 3rem;
+    font-family: 'Lora', serif;
+    font-size: 1.7rem;
+    line-height: 1.8;
+    color: $colorGrey1;
+    text-align: left;
+    padding-left: 4rem;
+    width: 60%;
+    max-width: 70rem;
+
+    @include onMobile {
+      text-align: center;
+      width: 100%;
+      padding-left: 0;
+    }
+
+    @include onDesktop {
+      font-size: 2rem;
+    }
+  }
+
+}

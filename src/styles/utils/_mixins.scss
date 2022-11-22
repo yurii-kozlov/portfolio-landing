@@ -1,3 +1,5 @@
+@import './variables';
+
 @mixin onDesktop {
   @media (min-width: 1024px) {
     @content;
@@ -35,7 +37,7 @@
   line-height: 2.4rem;
   text-transform: uppercase;
   letter-spacing: .2rem;
-  color: #FFFFFF;
+  color: $colorWhite;
 
   @include onMobile {
     font-size: 1.2rem;
@@ -44,7 +46,7 @@
 
 @mixin titles {
   font-family: 'Poppins', sans-serif;
-  color: #FF0077;
+  color: $colorPurple;
   font-size: 1.6rem;
   line-height: 1.875;
   margin-bottom: 0.3rem;
@@ -61,7 +63,7 @@
   text-align: center;
   font-size: 2.6rem;
   font-family: 'Poppins-semibold', sans-serif;
-  color: #313131;
+  color: $colorDarkBrownScale;
   line-height: 1.25;
   margin-bottom: 1.2rem;
   letter-spacing: -.07rem;
@@ -76,7 +78,7 @@
   font-family: "Lora", serif;
   font-size: 1.7rem;
   line-height: 3rem;
-  color: #6e6e6e;
+  color: $colorGrey;
 }
 
 @mixin smooth-transition {
@@ -91,7 +93,7 @@
   font-family: "Lora", serif;
   font-size: 1.7rem;
   line-height: 1.7;
-  color: #7d7d7d;
+  color: $colorGreySectionIntroText;
 
   @include onDesktop {
     font-size: 2rem;

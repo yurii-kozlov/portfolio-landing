@@ -1,3 +1,6 @@
+@import './utils/mixins';
+@import './utils/variables';
+
 .page {
   &__about {
     padding-top: 120px;

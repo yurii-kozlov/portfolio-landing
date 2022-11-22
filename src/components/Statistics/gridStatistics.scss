@@ -1,0 +1,56 @@
+@import '../../styles/utils/mixins';
+@import '../../styles/utils/variables';
+
+.grid-statistics {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(21rem, auto)) ;
+  grid-template-rows: repeat(auto-fill, 17rem);
+  grid-auto-rows: minmax(17rem, auto);
+  grid-auto-columns: minmax(21rem, auto);
+  column-gap: 2rem;
+
+  &__item {
+    border-left: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  &__item:first-child {
+    border-left: none;
+  }
+
+  &__item:nth-child(4) {
+    border-left: none;
+  }
+
+  @include onMobile-grid {
+    &__item {
+      border-left: none;
+    }
+  }
+
+
+  @media screen and (min-width: 1000px) {
+    & {
+      gap: 5rem;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-rows: repeat(1, minmax(10rem, auto));
+
+      &__item {
+        border-left: 1px solid rgba(255, 255, 255, 0.12);
+        min-height: 17.4rem;
+        padding-left: 5rem;
+        box-sizing: border-box;
+      }
+    
+      &__item:first-child {
+        padding-left: 0;
+        border-left: none;
+      }
+
+      &__item:nth-child(4) {
+        border-left: 1px solid rgba(255, 255, 255, 0.12);
+      }
+    
+    }
+  }
+}
+

@@ -1,25 +1,25 @@
-import { Header } from './blocks/Header';
-import { Switcher } from './blocks/Switcher';
-import { About } from './blocks/About';
-import { Experience } from './blocks/Experience';
-import { Portfolio } from './blocks/Portfolio';
-import { Grey } from './blocks/Grey';
-import { Services } from './blocks/Services';
-import { Footer } from './blocks/Footer';
-import { Statistics } from './blocks/Statistics';
-import { Contact } from './blocks/Contact';
+import { Header } from './components/Header';
+import { Switchers } from './components/Switchers';
+import { About } from './components/About';
+import { Experience } from './components/Experience';
+import { Portfolio } from './components/Portfolio';
+import { GreySection } from './components/GreySection';
+import { Services } from './components/Services';
+import { Footer } from './components/Footer';
+import { Statistics } from './components/Statistics';
+import { Contact } from './components/Contact';
 import './App.scss';
 
 export const App: React.FC = () => {
   return (
     <>
-      <Switcher />
+      <Switchers />
       <Header />
       <main>
         <About />
         <Experience />
         <Portfolio />
-        <Grey />
+        <GreySection />
         <Services />
         <Statistics />
         <Contact />

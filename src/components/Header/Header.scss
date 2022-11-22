@@ -1,0 +1,203 @@
+@import '../../styles/utils/mixins';
+@import '../../styles/utils/variables';
+
+.header {
+  background-image: linear-gradient(rgba(11, 11, 11, 0.938),rgba(21, 21, 21, 0.84)), url(../../images/intro-bg.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+
+
+  &__author {
+    &-info {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      @include smooth-transition;
+    }
+
+    &-name {
+      font-size: 5.5rem;
+      color: $colorWhite;
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.071;
+      @include smooth-transition;
+      margin-bottom: 0.6rem;
+      font-weight: bold;
+      letter-spacing: -.1rem;
+  
+      @include onMobile {
+        text-align: center;
+        font-size: 4rem;
+      }
+  
+      @include onDesktop {
+        font-size: 8.4rem;
+        letter-spacing: -.1rem;
+      }
+    }
+
+    &-in-details {
+      position: relative;
+      padding: 0 3rem;
+      text-decoration: none;
+      line-height: 5.4rem;
+      font-size: 1.2rem;
+      font-family: 'Poppins', sans-serif;
+      color: $colorWhite;
+      border: 0.3rem solid $colorGrey;
+      text-transform: uppercase;
+      font-weight: bold;
+      letter-spacing: 0.4rem;
+      margin: 0 auto;
+      @include smooth-transition;
+    }
+
+    &-in-details:hover {
+      border-color: $colorPurpleHover;
+      color: $colorWhite;
+    }
+
+    &-in-details::after {
+      display: inline-block;
+      content: "";
+      background-image: url(../../images/arrow2.png);
+      background-position: center;
+      background-size: cover;
+      opacity: 0.3;
+      position: relative;
+      left: 1.2rem;
+      width: 1rem;
+      height: 1rem;
+    }
+
+    &-first-occupation {
+      @include author-occupations;
+      @include onMobile {
+        display: block;
+      }
+    }
+
+    &-first-occupation::before {
+      content: "|";
+      text-align: center;
+      display: inline-block;
+      padding: $authorOccupationPaddings;
+      color: rgba(255, 255, 255, 0.3);
+  
+      @include onMobile {
+        content: "";
+        padding: 0;
+      }
+    }
+
+    
+    &-first-occupation::after {
+      content: "|";
+      text-align: center;
+      display: inline-block;
+      padding: $authorOccupationPaddings;
+      color: $colorGrey2;
+  
+      @include onMobile {
+        content: "";
+        padding: 0;
+      }
+    }
+
+    &-second-occupation {
+      @include author-occupations;
+    }
+
+    &-second-occupation::after {
+      content: "|";
+      text-align: center;
+      display: inline-block;
+      padding: $authorOccupationPaddings;
+      color: $colorGrey2;
+
+      @include onMobile {
+        content: "";
+        padding: 0;
+      }
+    }
+  }
+
+  &__link {
+    &-item {
+      text-decoration: none;
+      color: $colorWhite;
+      @include smooth-transition;
+    }
+
+    &-item:hover{
+      color: $colorPurpleHover;
+    }
+  }
+
+
+  &__links {
+    position: relative;
+    top: 20%;
+    font-size: 2.5rem;
+
+    @include onDesktop {
+      font-size: 3.5rem;
+    }
+
+    &-list {
+      list-style: none;
+      display: flex;
+      gap: 4rem;
+    }
+  
+  }
+
+  &__about-author {
+    @include onMobile {
+      font-size: 1.2rem;
+      text-align: center;
+      height: 2.4rem;
+      margin-bottom: 6rem;
+    }
+
+    margin-bottom: 3rem;
+  }
+
+  &__content {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__titles {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__greeting {
+    color: $colorPurpleHover;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    font-size: 2.3rem;
+    margin-bottom: 0.3rem;
+    letter-spacing: .2rem;
+
+    @include onMobile {
+      font-size: 1.5rem;
+    }
+
+    @include onDesktop {
+      font-size: 2.3rem;
+      margin-bottom: 0;
+      letter-spacing: .3rem;
+    }
+  }
+
+}
