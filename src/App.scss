@@ -1,5 +1,6 @@
 @import "./styles/grid.scss";
 @import "./styles/reset.scss";
+@import "./styles/utils/mixins";
 
 body {
   margin: 0;
@@ -8,6 +9,7 @@ body {
 
 html {
   font-size: 10px;
+
   margin: 0;
   padding: 0; 
   height: 100%;
