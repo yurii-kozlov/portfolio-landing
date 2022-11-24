@@ -1,0 +1,16 @@
+@import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
+
+.message-success {
+    text-align: left;
+    margin: 0 auto;
+    font-family: 'Lora', serif;
+    font-size: 1.7rem;
+    line-height: 3rem;
+    border-radius: 3px;
+    padding: 3rem;
+    margin-bottom: 3.6rem;
+    max-width: 75%;
+    color: $colorPurple;
+    background-color: $colorBlack1;
+}

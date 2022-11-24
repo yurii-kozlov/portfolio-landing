@@ -7,8 +7,7 @@ import './gridStatistics.scss';
 
 export const Statistics = () => {
   const ref: any = useRef<HTMLDivElement>();
-  const onScreen: boolean = useOnScreen<HTMLDivElement>(ref,
-    '100px');
+  const onScreen: boolean = useOnScreen<HTMLDivElement>(ref, '100px');
 
   return (
     <section

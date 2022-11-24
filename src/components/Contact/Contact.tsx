@@ -1,78 +1,36 @@
-import React, { useState } from 'react';
+/* eslint-disable no-console */
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 import { texts } from '../../api/texts';
+import { SubmitLoader } from '../SubmitLoader';
+import { MessageSuccess } from '../MessageSuccess';
+import { wait } from '../../helpers/wait';
+import { schema } from '../../helpers/schema';
+import { IFormInputs } from '../../types/IFormInputs';
 import './Contact.scss';
 
 const { introText } = texts;
 
 export const Contact = () => {
-  const [emailInput, setEmailUnput] = useState('');
-  const [nameInput, setNameInput] = useState('');
-  const [messageInput, setMessageInput] = useState('');
-  const [isEmptyMessageError, setIsEmptyMessageError]
-  = useState<boolean>(false);
-  const [isShortNameError, setIsShortNameError] = useState<boolean>(false);
-  const [isEmptyNameError, setIsEmptyNameError] = useState<boolean>(false);
-  const [isEmptyEmailError, setIsEmptyEmailError] = useState<boolean>(false);
-  const [isWrongEmail, setIsWrongEmail] = useState<boolean>(false);
+  const [isFormSubmited, setisFormSubmitted] = useState<boolean>(false);
+  const [isLoadingSumbit, setisLoadingSubmit] = useState<boolean>(false);
 
-  const handleSubmit = (event: React.FormEvent) => {
-    if (!emailInput) {
-      setIsEmptyEmailError(true);
-    }
+  const {
+    register, reset, handleSubmit, formState: { errors },
+  }
+  = useForm<IFormInputs>({
+    resolver: yupResolver(schema),
+  });
 
-    if (!nameInput) {
-      setIsEmptyNameError(true);
-    }
+  const onSubmit = async (data: IFormInputs) => {
+    console.log(data);
+    setisLoadingSubmit(true);
+    await wait(1000);
+    setisLoadingSubmit(false);
+    setisFormSubmitted(true);
 
-    if (!messageInput) {
-      setIsEmptyMessageError(true);
-    }
-
-    return event.preventDefault();
-  };
-
-  const handleNameInput = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.value.length < 2 && event.target.value.length !== 0) {
-      setIsShortNameError(true);
-    } else {
-      setIsShortNameError(false);
-    }
-
-    if (!event.target.value) {
-      setIsEmptyNameError(true);
-    } else {
-      setIsEmptyNameError(false);
-    }
-
-    return setNameInput(event.target.value);
-  };
-
-  const handleEmailInput = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (!event.target.value.includes('@') && event.target.value.length !== 0) {
-      setIsWrongEmail(true);
-    } else {
-      setIsWrongEmail(false);
-    }
-
-    if (!event.target.value) {
-      setIsEmptyEmailError(true);
-    } else {
-      setIsEmptyEmailError(false);
-    }
-
-    return setEmailUnput(event.target.value);
-  };
-
-  const handleMessageInput = (
-    event: React.ChangeEvent<HTMLTextAreaElement>,
-  ) => {
-    if (!event.target.value) {
-      setIsEmptyMessageError(true);
-    } else {
-      setIsEmptyMessageError(false);
-    }
-
-    return setMessageInput(event.target.value);
+    return reset();
   };
 
   return (
@@ -91,125 +49,103 @@ export const Contact = () => {
             {introText}
           </div>
         </div>
-        <div className="contact__form-block">
-          <form
-            onSubmit={handleSubmit}
-            action="#"
-            className="contact__form"
-            method="get"
-          >
-            <fieldset className="contact__form-fieldset">
-              <div className="contact__form-field">
-                <input
-                  onChange={handleNameInput}
-                  value={nameInput}
-                  id="contactName"
-                  placeholder="Name"
-                  name="contactName"
-                  className="contact__form-input"
-                  type="text"
-                />
 
-                {isEmptyNameError && (
-                  <label
-                    id="contactName-error"
-                    className="contact__form-input-error"
-                    htmlFor="contactName"
+        {!isFormSubmited ? (
+          <div className="contact__form-block">
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              action="#"
+              className="contact__form"
+              method="get"
+            >
+              <fieldset className="contact__form-fieldset">
+                <div className="contact__form-field">
+                  <input
+                    id="contactName"
+                    placeholder="Name"
+                    {...register('contactName')}
+                    className="contact__form-input"
+                    type="text"
+                  />
+                  {errors.contactName ? (
+                    <label
+                      id="contactName-error"
+                      className="contact__form-input-error"
+                      htmlFor="contactName"
+                    >
+                      {errors.contactName?.message}
+                    </label>
+                  ) : ('')}
+
+                </div>
+                <div className="contact__form-field">
+                  <input
+                    id="contactEmail"
+                    placeholder="Email"
+                    {...register('contactEmail')}
+                    className="contact__form-input"
+                    type="email"
+                  />
+
+                  {errors.contactEmail ? (
+                    <label
+                      id="contactMessage-error"
+                      className="contact__form-input-error"
+                      htmlFor="contactEmail"
+                    >
+                      {errors.contactEmail?.message}
+                    </label>
+                  ) : ''}
+
+                </div>
+                <div className="contact__form-field">
+                  <input
+                    id="contactSubject"
+                    placeholder="Subject"
+                    name="contactSubject"
+                    className="contact__form-input"
+                    type="text"
+                  />
+                </div>
+                <div className="contact__form-field">
+                  <textarea
+                    id="contactMessage"
+                    placeholder="message"
+                    {...register('contactMessage')}
+                    name="contactMessage"
+                    className="contact__form-textarea"
+                    rows={10}
+                    cols={50}
+                  />
+
+                  {errors.contactMessage ? (
+                    <label
+                      id="contactMessage-error"
+                      className="
+                              contact__form-textarea-error
+                              contact__form-input-error
+                              "
+                      htmlFor="contactMessage"
+                    >
+                      {errors.contactMessage?.message}
+                    </label>
+                  ) : ''}
+
+                </div>
+
+                <div className="contact__form-field">
+                  <button
+                    type="submit"
+                    className="contact__form-button"
                   >
-                    This field is required
-                  </label>
-                )}
-
-                {isShortNameError && (
-                  <label
-                    id="contactName-error"
-                    className="contact__form-input-error"
-                    htmlFor="contactName"
-                  >
-                    Please enter at least 2 characters
-                  </label>
-                )}
-
-              </div>
-              <div className="contact__form-field">
-                <input
-                  value={emailInput}
-                  onChange={handleEmailInput}
-                  id="contactEmail"
-                  placeholder="Email"
-                  name="contactEmail"
-                  className="contact__form-input"
-                  type="email"
-                />
-
-                {isEmptyEmailError && (
-                  <label
-                    id="contactMessage-error"
-                    className="contact__form-input-error"
-                    htmlFor="contactEmail"
-                  >
-                    This field is required.
-                  </label>
-                )}
-
-                {isWrongEmail && (
-                  <label
-                    id="contactMessage-error"
-                    className="contact__form-input-error"
-                    htmlFor="contactEmail"
-                  >
-                    Please enter a valid email address
-                  </label>
-                )}
-
-              </div>
-              <div className="contact__form-field">
-                <input
-                  id="contactSubject"
-                  placeholder="Subject"
-                  name="contactSubject"
-                  className="contact__form-input"
-                  type="text"
-                />
-              </div>
-              <div className="contact__form-field">
-                <textarea
-                  onChange={handleMessageInput}
-                  value={messageInput}
-                  id="contactMessage"
-                  placeholder="message"
-                  name="contactMessage"
-                  className="contact__form-textarea"
-                  rows={10}
-                  cols={50}
-                />
-
-                {isEmptyMessageError && (
-                  <label
-                    id="contactMessage-error"
-                    className="
-                    contact__form-textarea-error
-                    contact__form-input-error
-                    "
-                    htmlFor="contactMessage"
-                  >
-                    This field is required.
-                  </label>
-                )}
-
-              </div>
-
-              <div className="contact__form-field">
-                <button
-                  type="submit"
-                  className="contact__form-button"
-                >
-                  Submit
-                </button>
-              </div>
-            </fieldset>
-          </form>
-        </div>
+                    Submit
+                  </button>
+                </div>
+                {isLoadingSumbit && <SubmitLoader />}
+              </fieldset>
+            </form>
+          </div>
+        ) : <MessageSuccess />}
 
         <div className="contact__info">
           <div className="contact__info-item">

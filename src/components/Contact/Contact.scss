@@ -193,6 +193,7 @@
   &__form-block {
     max-width: 70rem;
     margin: 0 auto;
+    @include smooth-transition;;
   }
 
   &__intro {
