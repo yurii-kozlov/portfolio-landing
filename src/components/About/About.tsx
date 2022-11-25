@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable global-require */
-
+import { AdvancedImage } from '@cloudinary/react';
+import { getImage } from '../../helpers/getImage';
 import './About.scss';
 import '../../styles/page.scss';
 import { texts } from '../../api/texts';
@@ -11,13 +13,15 @@ export const About = () => {
   return (
     <section className="about page__about" id="about">
       <div className="container">
-        <div className="about__intro">
+        <div
+          className="about__intro"
+        >
           <h5 className="about__title">About</h5>
           <h1 className="about__subtitle">Let me introduce myself.</h1>
           <div className="about__intro-info">
-            <img
+            <AdvancedImage
               className="about__profile-photo"
-              src={require('../../images/profile-pic.jpg')}
+              cldImg={getImage('portfolio/profile-pic_ubppnj.jpg')}
               alt="profile_photo"
             />
             <p className="about__description">

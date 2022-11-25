@@ -1,0 +1,58 @@
+@import '../../styles/utils/mixins';
+@import '../../styles/utils/variables';
+
+.submit-loader {
+  position: relative;
+  left: 0;
+  top: 1.8rem;
+  width: 100%;
+  text-align: center;
+
+  &__text {
+    display: none;
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    color: $colorWhite;
+    letter-spacing: .3rem;
+    text-transform: uppercase;
+  }
+
+  &__animation {
+    margin: 1.2rem auto 3rem;
+    width: 7rem;
+    text-align: center;
+    transform: translateX(0.45rem);
+
+    &-part {
+      width: 1rem;
+      height: 1rem;
+      background-color: #FFFFFF;
+      border-radius: 100%;
+      display: inline-block;
+      margin-right: 0.9rem;
+      animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+
+      &--1 {
+        animation-delay: -0.32s;
+      }
+
+      &--2 {
+        animation-delay: -0.16s;
+      }
+    }
+  }
+}
+
+
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+  }
+  40% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+}
