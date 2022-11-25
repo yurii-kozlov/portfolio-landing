@@ -10,7 +10,7 @@ export const Header: React.FC = () => {
       <div className="container">
         <div className="header__content">
           <div className="header__titles">
-            <h5 className="header__greeting">Hello, world.</h5>
+            <h5 className="header__greeting">Hello, worlddddd.</h5>
             <h1 className="header__author-name">
               I&apos;m Juan Dela Cruz.
             </h1>
