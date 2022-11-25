@@ -1,10 +1,12 @@
 /* eslint-disable global-require */
+import { AdvancedImage } from '@cloudinary/react';
 import { useState } from 'react';
 import { Modal } from '../Modal';
 import '../../styles/page.scss';
 import './Portfolio.scss';
 import './grid-no-gap.scss';
 import { texts } from '../../api/texts';
+import { getImage } from '../../helpers/getImage';
 
 const { introText, portfolioExampleDescription } = texts;
 
@@ -36,9 +38,9 @@ export const Portfolio = () => {
       >
         <div className="portfolio__example-block">
           <div className="portfolio__example-block-media">
-            <img
+            <AdvancedImage
+              cldImg={getImage('portfolio/m-liberty_cotdjr.jpg')}
               className="portfolio__example-block-photo"
-              src={require('../../images/m-liberty.jpg')}
               alt="Liberty"
             />
           </div>
@@ -84,9 +86,9 @@ export const Portfolio = () => {
       >
         <div className="portfolio__example-block">
           <div className="portfolio__example-block-media">
-            <img
+            <AdvancedImage
+              cldImg={getImage('portfolio/m-shutterbug_fnxubp.jpg')}
               className="portfolio__example-block-photo"
-              src={require('../../images/m-shutterbug.jpg')}
               alt="Shutterberg"
             />
           </div>
@@ -132,9 +134,9 @@ export const Portfolio = () => {
       >
         <div className="portfolio__example-block">
           <div className="portfolio__example-block-media">
-            <img
+            <AdvancedImage
+              cldImg={getImage('portfolio/m-beetle_apf5vl.jpg')}
               className="portfolio__example-block-photo"
-              src={require('../../images/m-beetle.jpg')}
               alt="Beetle"
             />
           </div>
@@ -180,9 +182,9 @@ export const Portfolio = () => {
       >
         <div className="portfolio__example-block">
           <div className="portfolio__example-block-media">
-            <img
+            <AdvancedImage
+              cldImg={getImage('portfolio/m-clouds_lus8da.jpg')}
               className="portfolio__example-block-photo"
-              src={require('../../images/m-clouds.jpg')}
               alt="Clouds"
             />
           </div>
@@ -228,9 +230,9 @@ export const Portfolio = () => {
       >
         <div className="portfolio__example-block">
           <div className="portfolio__example-block-media">
-            <img
+            <AdvancedImage
+              cldImg={getImage('portfolio/m-salad_flco3t.jpg')}
               className="portfolio__example-block-photo"
-              src={require('../../images/m-salad.jpg')}
               alt="Salad"
             />
           </div>
@@ -276,9 +278,9 @@ export const Portfolio = () => {
       >
         <div className="portfolio__example-block">
           <div className="portfolio__example-block-media">
-            <img
+            <AdvancedImage
+              cldImg={getImage('portfolio/m-lighthouse_ueazkr.jpg')}
               className="portfolio__example-block-photo"
-              src={require('../../images/m-lighthouse.jpg')}
               alt="LightHouse"
             />
           </div>
@@ -333,9 +335,9 @@ export const Portfolio = () => {
               <div className="grid-no-gap">
                 <div className="grid-no-gap__item grid-no-gap__item--1-6">
                   <div className="portfolio__image-container">
-                    <img
+                    <AdvancedImage
+                      cldImg={getImage('portfolio/liberty_cnfkky.jpg')}
                       className="portfolio__image"
-                      src={require('../../images/liberty.jpg')}
                       alt="Liberty"
                     />
                   </div>
@@ -357,9 +359,9 @@ export const Portfolio = () => {
                 <div className="grid-no-gap__item grid-no-gap__item--7-12">
 
                   <div className="portfolio__image-container">
-                    <img
+                    <AdvancedImage
                       className="portfolio__image"
-                      src={require('../../images/shutterbug.jpg')}
+                      cldImg={getImage('portfolio/shutterbug_xejmzu.jpg')}
                       alt="Shutterbug"
                     />
                   </div>
@@ -391,6 +393,12 @@ export const Portfolio = () => {
                       src={require('../../images/beetle.jpg')}
                       alt="Beetle"
                     />
+
+                    <AdvancedImage
+                      className="portfolio__image"
+                      cldImg={getImage('portfolio/beetle_aws0f5.jpg')}
+                      alt="Beetle"
+                    />
                   </div>
 
                   <a
@@ -414,6 +422,12 @@ export const Portfolio = () => {
                     <img
                       className="portfolio__image"
                       src={require('../../images/clouds.jpg')}
+                      alt="Clouds"
+                    />
+
+                    <AdvancedImage
+                      className="portfolio__image"
+                      cldImg={getImage('portfolio/clouds_wlcvxy.jpg')}
                       alt="Clouds"
                     />
                   </div>
@@ -445,6 +459,11 @@ export const Portfolio = () => {
                       src={require('../../images/salad.jpg')}
                       alt="Salad"
                     />
+                    <AdvancedImage
+                      className="portfolio__image"
+                      cldImg={getImage('portfolio/salad_voai8w.jpg')}
+                      alt="Salad"
+                    />
                   </div>
 
                   <a
@@ -465,9 +484,9 @@ export const Portfolio = () => {
                 <div className="grid-no-gap__item grid-no-gap__item--7-12">
 
                   <div className="portfolio__image-container">
-                    <img
+                    <AdvancedImage
                       className="portfolio__image"
-                      src={require('../../images/lighthouse.jpg')}
+                      cldImg={getImage('portfolio/lighthouse_fwekva.jpg')}
                       alt="Lighthouse"
                     />
                   </div>

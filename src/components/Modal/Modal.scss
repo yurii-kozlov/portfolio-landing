@@ -15,6 +15,11 @@
   pointer-events: none;
   transition: all 0.5s;
 
+  &--active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
   &__content {
     max-width: 50rem;
     height: 30rem;
@@ -32,10 +37,5 @@
       transform: translateY(0);
       opacity: 1;
     }
-  }
-
-  &--active {
-    opacity: 1;
-    pointer-events: all;
   }
 }
