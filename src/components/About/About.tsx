@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable global-require */
 import { AdvancedImage } from '@cloudinary/react';
 import { getImage } from '../../helpers/getImage';
 import './About.scss';
